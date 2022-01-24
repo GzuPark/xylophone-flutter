@@ -6,7 +6,10 @@ void main() => runApp(XylophoneApp());
 class XylophoneApp extends StatelessWidget {
   final player = AudioCache();
 
-  Widget getNoteButton(int noteNumber, Color color) {
+  Widget getNoteButton({
+    required int noteNumber,
+    required Color color,
+  }) {
     return Expanded(
       child: MaterialButton(
         onPressed: () => player.play('note$noteNumber.wav'),
@@ -24,13 +27,13 @@ class XylophoneApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              getNoteButton(1, Colors.red),
-              getNoteButton(2, Colors.orange),
-              getNoteButton(3, Colors.yellow),
-              getNoteButton(4, Colors.green),
-              getNoteButton(5, Colors.teal),
-              getNoteButton(6, Colors.blue),
-              getNoteButton(7, Colors.purple),
+              getNoteButton(noteNumber: 1, color: Colors.red),
+              getNoteButton(noteNumber: 2, color: Colors.orange),
+              getNoteButton(noteNumber: 3, color: Colors.yellow),
+              getNoteButton(noteNumber: 4, color: Colors.green),
+              getNoteButton(noteNumber: 5, color: Colors.teal),
+              getNoteButton(noteNumber: 6, color: Colors.blue),
+              getNoteButton(noteNumber: 7, color: Colors.purple),
             ],
           ),
         ),
