@@ -4,20 +4,30 @@ import 'package:flutter/material.dart';
 void main() => runApp(XylophoneApp());
 
 class XylophoneApp extends StatelessWidget {
+  final player = AudioCache();
+
+  Widget getNoteButton(int noteNumber, Color color) {
+    return MaterialButton(
+      onPressed: () => player.play('note$noteNumber.wav'),
+      color: color,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         body: SafeArea(
-          child: Center(
-            child: MaterialButton(
-              child: Text('Click Me'),
-              onPressed: () {
-                final player = AudioCache();
-                // Predefined the path with 'assets/'
-                player.play('note1.wav');
-              },
-            ),
+          child: Column(
+            children: [
+              getNoteButton(1, Colors.red),
+              getNoteButton(2, Colors.orange),
+              getNoteButton(3, Colors.yellow),
+              getNoteButton(4, Colors.green),
+              getNoteButton(5, Colors.teal),
+              getNoteButton(6, Colors.blue),
+              getNoteButton(7, Colors.purple),
+            ],
           ),
         ),
       ),
